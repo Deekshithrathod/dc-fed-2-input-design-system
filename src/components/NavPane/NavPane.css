@@ -1,0 +1,36 @@
+.nav-pane {
+  background: #fafbfd;
+  padding: 3rem 4rem;
+}
+
+.logo {
+  color: #090f31;
+  font-family: "Poppins";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.logo > span {
+  color: #f7542e;
+}
+
+.options {
+  margin-top: 8rem;
+}
+
+.options > ul > li {
+  list-style: none;
+  color: #9e9e9e;
+  font-family: Noto Sans JP;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+  margin-bottom: 1.5rem;
+}
+.options > ul > li > b {
+  color: #090f31;
+}

@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+}
+
+aside {
+  height: 100%;
+  background: #fafbfd;
+  padding: 3rem 4rem;
+}

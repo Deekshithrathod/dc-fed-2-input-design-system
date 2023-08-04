@@ -1,0 +1,43 @@
+article {
+  padding: 3rem 5rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--gray-2, #4f4f4f);
+  font-family: Poppins;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+h2 {
+  font-size: 1.25rem;
+  padding: 1rem 0;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+.buttons-display {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.button-set {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem 0;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.5rem;
+}
