@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Input = ({
   size = "md",
@@ -24,15 +24,6 @@ const Input = ({
   error?: boolean;
 }) => {
   const [isHover, setIsHover] = useState(false);
-  const [isFocus, setIsFocus] = useState(false);
-
-  const handleFocus = (e) => {
-    setIsFocus(true);
-  };
-
-  const handleBlur = (e) => {
-    setIsFocus(false);
-  };
 
   const inputStyle = {
     fontFamily: `Noto Sans JP`,
@@ -42,7 +33,7 @@ const Input = ({
     lineHeight: `normal`,
 
     borderRadius: `0.5rem`,
-    border: `1px solid  ${getBorderColor(error, isHover, isFocus)}`,
+    border: `1px solid  ${getBorderColor(error, isHover)}`,
 
     width: getWidth(fullWidth),
     height: getHeight(multiline, row),
@@ -50,7 +41,7 @@ const Input = ({
   };
 
   const labelStyle = {
-    color: `${getBorderColor(error, false, true)}`,
+    color: `${getBorderColor(error, false)}`,
     fontFamily: `Noto Sans JP`,
     fontSize: `0.75rem`,
     fontWeight: `400`,
@@ -70,8 +61,6 @@ const Input = ({
       </label>
       {/* {startIcon && <span className="material-symbols-outlined">call</span>} */}
       <input
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
         type="text"
@@ -106,7 +95,7 @@ const getPadding = (
   return finalString;
 };
 
-const getBorderColor = (error: boolean, isHover: boolean, isFocus: boolean) => {
+const getBorderColor = (error: boolean, isHover: boolean) => {
   if (error) {
     return isHover ? `#333333` : `#D32F2F`;
     // return `yellow`;
