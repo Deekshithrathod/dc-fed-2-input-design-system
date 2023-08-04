@@ -22,6 +22,10 @@ h3 {
   font-size: 1rem;
 }
 
+main {
+  width: 100%;
+}
+
 .buttons-display {
   margin-top: 1.5rem;
   display: flex;
@@ -38,6 +42,26 @@ h3 {
 .button-row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0 1.5rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem 4.5rem;
+}
+
+footer {
+  color: #bdbdbd;
+  font-family: "Montserrat";
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-style: normal;
+  line-height: normal;
+  text-align: center;
+
+  margin-top: auto;
+}
+
+footer > b > a {
+  color: #bdbdbd;
+  font-weight: 700;
+  text-transform: none;
+  text-decoration: none;
 }
