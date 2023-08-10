@@ -31,7 +31,6 @@ const DisplayArea = () => {
           <h3>Full-Width</h3>
           <div className="button-row">
             <Input fullWidth />
-            {/* <br /> */}
             <Input />
           </div>
         </div>

@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">Input Design System</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -37,9 +37,9 @@
 
 ## Overview
 
-| Desktop                          |
-| -------------------------------- |
-| ![Desktop View](public/demo.png) |
+|                    Desktop                     |                  Mobile                   |
+| :--------------------------------------------: | :---------------------------------------: |
+| ![Project On Desktop](public/demo-desktop.png) | ![Demo On Mobile](public/demo-mobile.png) |
 
 - Where can I see your demo? [here](https://devchallenges-fed-2.onrender.com)
 - What have you learned/improved?
@@ -51,6 +51,7 @@
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
 - [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
 
 ## Features
 
@@ -91,9 +92,11 @@ $ npm run dev
 
 <!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For exmpale -->
 
+- [Vite Guide](https://vitejs.dev/guide/)
+- [React Docs](https://react.dev/)
+- [Recoil Guide](https://recoiljs.org/docs/introduction/installation)
 - [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
 - [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
 
 ## Contact
 
