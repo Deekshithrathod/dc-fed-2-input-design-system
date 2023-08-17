@@ -7,61 +7,72 @@ const DisplayArea = () => {
       <h1>Inputs</h1>
       <div className="buttons-display">
         <div className="button-set">
-          <h3>Helper Text</h3>
+          <h3>Default</h3>
           <div className="button-row">
             <Input />
-            <Input helperText="Helper Text" />
-          </div>
-        </div>
-        <div className="button-set">
-          <h3>Disable Attr Text</h3>
-          <div className="button-row">
-            <Input />
-            <Input disable />
-          </div>
-        </div>
-        <div className="button-set">
-          <h3>Size</h3>
-          <div className="button-row">
-            <Input size="sm" />
-            <Input size="md" />
-          </div>
-        </div>
-        <div className="button-set">
-          <h3>Label</h3>
-          <div className="button-row">
-            <Input label="Halo Wald" />
-            <Input />
-          </div>
-        </div>
-
-        <div className="button-set">
-          <h3>Full-Width</h3>
-          <div className="button-row">
-            <Input fullWidth />
-            <Input />
-          </div>
-        </div>
-        <div className="button-set">
-          <h3>Multi-line</h3>
-          <div className="button-row">
-            <Input multiline />
-            <Input multiline row={4} />
-          </div>
-        </div>
-        <div className="button-set">
-          <h3>Icons</h3>
-          <div className="button-row">
-            <Input startIcon />
-            <Input endIcon />
           </div>
         </div>
         <div className="button-set">
           <h3>Error</h3>
           <div className="button-row">
             <Input error />
-            <Input error helperText="Helo" />
-            <Input endIcon />
+            <Input />
+          </div>
+        </div>
+        <div className="button-set">
+          <h3>Disabled</h3>
+          <div className="button-row">
+            <Input disabled />
+            <Input />
+          </div>
+        </div>
+        <div className="button-set">
+          <h3>Helper Text</h3>
+          <div className="button-row">
+            <Input helperText="Hello World" error />
+            <Input />
+          </div>
+        </div>
+        <div className="button-set">
+          <h3>Start Icon</h3>
+          <div className="button-row">
+            <Input helperText="Hello World" startIcon="phone" />
+            <Input />
+          </div>
+        </div>
+        <div className="button-set">
+          <h3>End Icon</h3>
+          <div className="button-row">
+            <Input endIcon="accessible" />
+            <Input />
+          </div>
+        </div>
+        <div className="button-set">
+          <h3>Value </h3>
+          <div className="button-row">
+            <Input value="Hello World" />
+            <Input />
+          </div>
+        </div>
+        <div className="button-set">
+          <h3>Size </h3>
+          <div className="button-row">
+            <Input size="sm" />
+            <Input />
+          </div>
+        </div>
+        <div className="button-set">
+          <h3>Full-Width </h3>
+          <div className="button-row">
+            <Input fullWidth />
+            <Input />
+          </div>
+        </div>
+        <div className="button-set">
+          <h3>Multi-Line</h3>
+          <div className="button-row">
+            <Input multiline row={4} />
+            <Input />
           </div>
         </div>
         <footer>

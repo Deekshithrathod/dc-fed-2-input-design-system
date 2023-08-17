@@ -1,4 +1,4 @@
-import NewDisplayArea from "../../components/DisplayArea/NewDisplayArea";
+import DisplayArea from "../../components/DisplayArea/DisplayArea";
 import NavPane from "../../components/NavPane/NavPane";
 import "./Home.css";
 
@@ -8,7 +8,7 @@ const Home = () => {
       <div className="container">
         <NavPane />
         <main>
-          <NewDisplayArea />
+          <DisplayArea />
         </main>
       </div>
     </>
