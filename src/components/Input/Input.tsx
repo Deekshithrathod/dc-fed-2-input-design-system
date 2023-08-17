@@ -1,121 +1,187 @@
+import styled from "@emotion/styled";
 import { useState } from "react";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import AgricultureIcon from "@mui/icons-material/Agriculture";
+import AccessibleIcon from "@mui/icons-material/Accessible";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AirlineSeatReclineExtraIcon from "@mui/icons-material/AirlineSeatReclineExtra";
+
+type iconString =
+  | ""
+  | "tractor"
+  | "phone"
+  | "accessible"
+  | "account"
+  | "airline";
 
 const Input = ({
-  size = "md",
-  label = "Label",
+  error = false,
+  disabled = false,
   helperText = "",
-  placeHolder = "Placeholder",
+  startIcon = "",
+  endIcon = "",
+  value = "",
+  size = "md",
   fullWidth = false,
   multiline = false,
   row = 1,
-  startIcon = false,
-  endIcon = false,
-  error = false,
 }: {
-  size?: "md" | "sm";
-  placeHolder?: string;
-  label?: string;
+  error?: boolean;
+  disabled?: boolean;
   helperText?: string;
+  startIcon?: iconString;
+  endIcon?: iconString;
+  value?: string;
+  size?: "sm" | "md";
   fullWidth?: boolean;
   multiline?: boolean;
   row?: number;
-  startIcon?: boolean;
-  endIcon?: boolean;
-  error?: boolean;
 }) => {
+  const [focus, setFocus] = useState(false);
   const [isHover, setIsHover] = useState(false);
 
-  const inputStyle = {
-    fontFamily: `Noto Sans JP`,
-    fontSize: `14px`,
-    fontStyle: `normal`,
-    fontWeight: 500,
-    lineHeight: `normal`,
+  const StyledLabel = styled.label`
+    color: ${getColor(isHover, focus, error)};
+    font-size: 0.75rem;
+  `;
 
-    borderRadius: `0.5rem`,
-    border: `1px solid  ${getBorderColor(error, isHover)}`,
+  const StyledInput = styled.input`
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    height: ${getHeight(multiline, row)};
+    padding-top:0;
+    
+    border: none;
+    
+    ::placeholder{
+      color:  #828282;
+    }
 
-    width: getWidth(fullWidth),
-    height: getHeight(multiline, row),
-    padding: getPadding(size, startIcon, endIcon),
-  };
+    :focus{
+      outline: none;
+    }
 
-  const labelStyle = {
-    color: `${getBorderColor(error, false)}`,
-    fontFamily: `Noto Sans JP`,
-    fontSize: `0.75rem`,
-    fontWeight: `400`,
-    marginBottom: `0.25rem`,
-  };
+    :disabled{
+      background-color: #F2F2F2;
+    }
+    `;
 
-  const containerStyle = {
-    width: getWidth(fullWidth),
-    display: "flex",
-    flexDirection: "column" as `column`,
-  };
+  const InputBox = styled.div`
+    color: #828282;
+    background-color: ${disabled ? `#F2F2F2` : ``};
+    border-radius: 0.5rem;
+    /* border: 1px solid ${focus ? `#2962FF` : `#828282`}; */
+    border: 1px solid ${getColor(isHover, focus, error, disabled)};
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    padding: ${`${size === "sm" ? "0.625rem" : "1.125rem"} 0.75rem`};
+
+    :hover{
+      border: 1px solid #333;
+    }
+  `;
+
+  const StyledHelper = styled.div`
+    color:  ${getColor(isHover, focus, error, disabled)};
+    font-size: 10px;
+  `;
 
   return (
-    <div className="input-container" style={containerStyle}>
-      <label htmlFor="d" style={labelStyle}>
-        {label}
-      </label>
-      {/* {startIcon && <span className="material-symbols-outlined">call</span>} */}
-      <input
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-        type="text"
-        placeholder={placeHolder}
-        style={inputStyle}
-      />
-      {/* {endIcon && <span className="material-symbols-outlined">lock</span>} */}
-      {helperText && (
-        <div style={{ ...labelStyle, marginTop: `.25rem` }}>{helperText}</div>
-      )}
+    <div
+      style={{
+        fontFamily: "Noto Sans JP",
+        fontStyle: `normal`,
+        fontWeight: 400,
+        lineHeight: `normal`,
+
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        gap: `0.25rem 0`,
+
+        width: `${fullWidth ? `100%` : ""}`,
+      }}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseOut={() => setIsHover(false)}>
+      <StyledLabel>{`Label`}</StyledLabel>
+      <InputBox>
+        {getIconFromString(startIcon)}
+        <StyledInput
+          placeholder="Placeholder"
+          onFocus={() => setFocus(true)}
+          onBlur={() => setFocus(false)}
+          disabled={disabled}
+          value={value}
+        />
+        {getIconFromString(endIcon)}
+      </InputBox>
+      {helperText && <StyledHelper>{helperText}</StyledHelper>}
     </div>
   );
 };
 
-const getPadding = (
-  size: string,
-  startIcon: boolean,
-  endIcon: boolean
-): string => {
-  console.log(`used GetPadding with ${size === "sm"}`);
-
-  let factor = 18;
-  if (size === "sm") {
-    factor = 10;
+const getColor = (
+  hover: boolean,
+  focus: boolean,
+  error: boolean,
+  disabled?: boolean
+) => {
+  if (disabled) {
+    return `#E0E0E0`;
   }
-
-  let leftPadding = startIcon ? 3 : 0.75;
-  let rightPadding = endIcon ? 3 : 0.75;
-
-  const finalString = `${factor}px ${rightPadding}rem  ${factor}px ${leftPadding}rem`;
-  console.log(finalString);
-  return finalString;
-};
-
-const getBorderColor = (error: boolean, isHover: boolean) => {
-  if (error) {
-    return isHover ? `#333333` : `#D32F2F`;
-    // return `yellow`;
-  }
-  if (isHover) {
+  if (hover) {
     return `#333`;
   }
-  return `#828282`;
-};
 
-const getWidth = (fullWidth: boolean): string => {
-  return fullWidth ? `100%` : `12.5rem`;
+  if (error) {
+    return `#D32F2F`;
+  }
+
+  if (focus) {
+    return `#2962FF`;
+  }
+
+  return `#333`;
 };
 
 const getHeight = (multiline: boolean, row: number) => {
-  let height = 1;
-  if (multiline) {
-    height = row;
+  if (!multiline) {
+    return ``;
   }
-  return `${height}rem`;
+  return `${row * 1.25}rem`;
+};
+
+const getIconFromString = (icon: iconString) => {
+  let MuiIcon;
+  switch (icon) {
+    case "tractor":
+      MuiIcon = <AgricultureIcon style={{ fontSize: "1.125rem" }} />;
+      break;
+    case "phone":
+      MuiIcon = <LocalPhoneIcon style={{ fontSize: "1.125rem" }} />;
+      break;
+    case "account":
+      MuiIcon = <AccountCircleIcon style={{ fontSize: "1.125rem" }} />;
+      break;
+    case "airline":
+      MuiIcon = (
+        <AirlineSeatReclineExtraIcon style={{ fontSize: "1.125rem" }} />
+      );
+      break;
+    case "accessible":
+      MuiIcon = <AccessibleIcon style={{ fontSize: "1.125rem" }} />;
+      break;
+
+    default:
+      MuiIcon = <></>;
+      break;
+  }
+  return MuiIcon;
 };
 
 export default Input;
