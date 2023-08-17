@@ -60,9 +60,9 @@
 This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/TSqutYM4c5WtluM7QzGp) was to build an application to complete the given user stories.
 
 - [x] **User story:** I can see error state
-- [ ] **User story:** I can choose to disable input
+- [x] **User story:** I can choose to disable input
 - [x] **User story:** I can choose to have helper text
-- [ ] **User story:** I can choose to have an icon on the left or right (Use Google Icon and at least 5 variants)
+- [x] **User story:** I can choose to have an icon on the left or right (Use Google Icon and at least 5 variants)
 - [x] **User story:** I can have different input sizes
 - [x] **User story:** I can have different colors
 - [x] **User story:** I can choose to have input take the width of the parent
